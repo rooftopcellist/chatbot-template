@@ -124,7 +124,13 @@ chatbot-template/
 ├── requirements.txt          # Python dependencies
 ├── data/                     # Directory for storing data
 │   └── index/                # Persistent vector index
-├── docs/                     # Example documentation structure
+├── docs/                     # Example documentation structure and system docs
+│   ├── README.md             # Documentation index with links to all docs
+│   ├── core-concepts.md      # High-level explanation of RAG chatbots
+│   ├── architecture.md       # System architecture and component details
+│   ├── tuning-pretrained-models.md # Guide to adjusting model parameters
+│   ├── optimizing-documentation.md # Best practices for documentation
+│   ├── evaluating-performance.md   # Methods for assessing chatbot performance
 │   ├── guides/               # Step-by-step guides
 │   ├── reference/            # Technical reference documentation
 │   ├── tutorials/            # Comprehensive tutorials
@@ -187,6 +193,18 @@ The `training-data/` directory is where you'll add your team's documentation for
    ```
    python main.py
    ```
+
+## System Documentation
+
+The `docs/` directory contains comprehensive documentation about the chatbot system itself:
+
+- [Core Concepts](docs/core-concepts.md): High-level explanation of RAG chatbots and how they work
+- [Architecture](docs/architecture.md): Detailed explanation of the chatbot's components and data flow
+- [Tuning Pretrained Models](docs/tuning-pretrained-models.md): Guide to adjusting model parameters for optimal responses
+- [Optimizing Documentation](docs/optimizing-documentation.md): Best practices for creating documentation that works well with RAG
+- [Evaluating Performance](docs/evaluating-performance.md): Methods for assessing and improving chatbot performance
+
+See the [docs README](docs/README.md) for a complete index of all documentation.
 
 ## Customizing the Chatbot
 
