@@ -67,6 +67,11 @@ You can modify the settings in `config.py`:
 - `EMBEDDING_MODEL_NAME`: Hugging Face model for embeddings
 - `OLLAMA_MODEL`: Ollama model to use
 - `OLLAMA_BASE_URL`: URL for the Ollama server
+- `OLLAMA_TEMPERATURE`: Controls randomness (0.0 = deterministic, 1.0 = creative)
+- `OLLAMA_NUM_CTX`: Context window size in tokens
+- `OLLAMA_NUM_PREDICT`: Maximum number of tokens to generate
+- `OLLAMA_REPEAT_PENALTY`: Penalty for repeating tokens
+- `OLLAMA_REQUEST_TIMEOUT`: Timeout in seconds for Ollama requests
 - `TOP_K`: Number of chunks to retrieve for each query
 - `CHATBOT_NAME`: Name of the chatbot
 - `WELCOME_MESSAGE`: Welcome message to display
@@ -171,6 +176,26 @@ You can customize the system prompt by editing the `system_prompt.txt` file in t
 - Include examples of ideal responses
 
 The system prompt is loaded when the chatbot starts and is passed to the LLM to guide its behavior.
+
+### Adjusting LLM Parameters
+
+You can fine-tune the behavior of the language model by adjusting parameters in `config.py`:
+
+```python
+# LLM settings
+OLLAMA_MODEL = "qwen3:1.7b"  # Default model to use
+OLLAMA_TEMPERATURE = 0.1  # Controls randomness (0.0 = deterministic, 1.0 = creative)
+OLLAMA_NUM_CTX = 4096  # Context window size
+OLLAMA_NUM_PREDICT = 1024  # Maximum number of tokens to generate
+OLLAMA_REPEAT_PENALTY = 1.1  # Penalty for repeating tokens
+```
+
+- **Temperature**: Lower values (0.0-0.3) for factual, consistent responses; higher values (0.5-0.8) for more creative responses
+- **Context Window**: Increase for handling more context from retrieved documents
+- **Max Tokens**: Adjust based on how detailed you want responses to be
+- **Repeat Penalty**: Increase to reduce repetition in responses
+
+See [Tuning Pretrained Models](docs/tuning-pretrained-models.md) for detailed guidance on parameter tuning.
 
 ### Using a Different LLM
 

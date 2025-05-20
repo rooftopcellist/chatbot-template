@@ -37,12 +37,12 @@ class QueryEngine:
         self.llm = Ollama(
             model=config.OLLAMA_MODEL,
             base_url=config.OLLAMA_BASE_URL,
-            request_timeout=300.0,  # Increased timeout for smaller models which might be slower
-            temperature=0.1,  # Lower temperature for more focused responses
-            num_ctx=4096,  # Context window size
-            num_predict=1024,  # Maximum number of tokens to generate
-            repeat_penalty=1.1,  # Penalty for repeating tokens
-            system_prompt=system_prompt  # Add the system prompt
+            request_timeout=config.OLLAMA_REQUEST_TIMEOUT,
+            temperature=config.OLLAMA_TEMPERATURE,
+            num_ctx=config.OLLAMA_NUM_CTX,
+            num_predict=config.OLLAMA_NUM_PREDICT,
+            repeat_penalty=config.OLLAMA_REPEAT_PENALTY,
+            system_prompt=system_prompt
         )
 
         # Create retriever
