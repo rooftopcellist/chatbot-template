@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+env/
+.env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data directories
+handbook/*
+data/
+
+# Output files
+output.txt
+*.log
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
