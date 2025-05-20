@@ -101,6 +101,7 @@ You can modify the settings in `config.py`:
 
 - `DOCS_DIR`: Path to the directory containing Markdown files
 - `INDEX_PERSIST_DIR`: Directory to store the persistent index
+- `SYSTEM_PROMPT_PATH`: Path to the system prompt file
 - `CHUNK_SIZE`: Size of text chunks for embedding
 - `CHUNK_OVERLAP`: Overlap between chunks
 - `EMBEDDING_MODEL_NAME`: Hugging Face model for embeddings
@@ -120,6 +121,7 @@ chatbot-template/
 ├── embedding_engine.py       # Embedding and vector storage
 ├── query_engine.py           # Query processing and response generation
 ├── chat_interface.py         # Terminal chat interface
+├── system_prompt.txt         # System prompt for guiding the chatbot's responses
 ├── run.sh                    # Convenience script to run the chatbot
 ├── requirements.txt          # Python dependencies
 ├── data/                     # Directory for storing data
@@ -207,6 +209,19 @@ The `docs/` directory contains comprehensive documentation about the chatbot sys
 See the [docs README](docs/README.md) for a complete index of all documentation.
 
 ## Customizing the Chatbot
+
+### Customizing the System Prompt
+
+The chatbot uses a system prompt to guide its responses. By default, it's configured as a documentation and code assistant with expertise in Python and Ansible.
+
+You can customize the system prompt by editing the `system_prompt.txt` file in the root directory. This allows you to:
+
+- Change the chatbot's personality and tone
+- Add specific expertise areas
+- Provide guidelines for how responses should be formatted
+- Include examples of ideal responses
+
+The system prompt is loaded when the chatbot starts and is passed to the LLM to guide its behavior.
 
 ### Using a Different LLM
 

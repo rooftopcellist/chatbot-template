@@ -5,6 +5,7 @@ Configuration settings for the chatbot application.
 # Paths
 DOCS_DIR = "training-data"  # Directory containing documents to index
 INDEX_PERSIST_DIR = "data/index"  # Directory to store the persistent index
+SYSTEM_PROMPT_PATH = "system_prompt.txt"  # Path to the system prompt file
 
 # Document processing
 CHUNK_SIZE = 500  # Size of text chunks for embedding
