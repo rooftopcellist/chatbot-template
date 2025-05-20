@@ -1,28 +1,8 @@
-# Simpole RAG Chatbot Template
+# Simple RAG Chatbot Template
 
-A ready-to-use template for creating a local chatbot that can answer questions about your team's documentation using Retrieval-Augmented Generation (RAG). This tool helps teams make their internal knowledge more accessible and reduces the time spent searching through documentation.
+A ready-to-use template for creating a local chatbot that can answer questions about your team's documentation using Retrieval-Augmented Generation (RAG).
 
-## Why Use This Template?
-
-- **Knowledge Accessibility**: Make team documentation easily accessible through natural language questions
-- **Reduce Onboarding Time**: Help new team members quickly find answers to common questions
-- **Offline Operation**: Runs completely locally without sending your data to external APIs
-- **Privacy-Preserving**: Your sensitive team documents never leave your machine
-- **Customizable**: Easily adapt to your team's specific documentation and needs
-
-## Features
-
-- Loads Markdown files from a specified directory
-- Strips YAML front matter
-- Chunks the text for semantic embedding
-- Embeds the content using a Hugging Face model
-- Stores the embeddings in a vector index locally
-- Provides a terminal interface for asking questions
-- Retrieves relevant document chunks
-- Sends the chunks + question to the model via Ollama
-- Returns relevant answers
-- Persists the index to avoid rebuilding it every time
-- Runs entirely offline
+You can train the chatbot on any markdown documentation,  that you find useful and then ask questions about it.
 
 ## Requirements
 
@@ -59,9 +39,9 @@ A ready-to-use template for creating a local chatbot that can answer questions a
    ollama serve
    ```
 
-2. Add your team's markdown documents to the `training-data` directory:
+2. Add your team's markdown documents to the `training-data` directory. Or you can use the sample documentation provided in the `sample-docs` directory to test out this chatbot:
    ```
-   cp -r your-team-docs/* training-data/
+   cp -r sample-docs/* training-data/
    ```
 
 3. Run the chatbot:
@@ -73,27 +53,7 @@ A ready-to-use template for creating a local chatbot that can answer questions a
 
 4. Ask questions about your team's documentation in the terminal interface.
 
-### Example Questions You Can Ask
-
-Once your team's documentation is loaded, you can ask questions like:
-
-- "What's our process for code reviews?"
-- "How do I set up my development environment?"
-- "What are the steps to deploy to production?"
-- "Who should I contact for access to the staging environment?"
-- "What's our policy on handling customer data?"
-- "What's the architecture of our authentication system?"
-- "What are the required fields for the user API endpoint?"
-- "How do we handle error logging in the application?"
-
-### Team Usage Scenarios
-
-- **New Employee Onboarding**: Help new team members quickly find information without having to ask colleagues repeatedly
-- **Cross-Team Collaboration**: Enable team members to find information about other teams' systems and processes
-- **Remote Work Support**: Provide 24/7 access to team knowledge regardless of time zones
-- **Knowledge Preservation**: Capture and make searchable the knowledge of departing team members
-- **Meeting Preparation**: Quickly look up relevant information before meetings
-- **Technical Support**: Help support teams find solutions to common problems
+5. Try asking a question about the documentation you just added. If you are using the sample docs, try asking it, "What is RAG and how does it work?", or "What is a fact about Stradivarius?".
 
 ## Configuration
 
@@ -126,18 +86,6 @@ chatbot-template/
 ├── requirements.txt          # Python dependencies
 ├── data/                     # Directory for storing data
 │   └── index/                # Persistent vector index
-├── docs/                     # Example documentation structure and system docs
-│   ├── README.md             # Documentation index with links to all docs
-│   ├── core-concepts.md      # High-level explanation of RAG chatbots
-│   ├── architecture.md       # System architecture and component details
-│   ├── tuning-pretrained-models.md # Guide to adjusting model parameters
-│   ├── optimizing-documentation.md # Best practices for documentation
-│   ├── evaluating-performance.md   # Methods for assessing chatbot performance
-│   ├── guides/               # Step-by-step guides
-│   ├── reference/            # Technical reference documentation
-│   ├── tutorials/            # Comprehensive tutorials
-│   ├── examples/             # Code examples and use cases
-│   └── api/                  # API documentation
 └── training-data/            # Default directory for training documents
 ```
 
@@ -155,6 +103,7 @@ The `training-data/` directory is where you'll add your team's documentation for
 - **Meeting Notes and Decisions**: Important decisions and their context
 - **Knowledge Base Articles**: How-to guides and explanations of complex topics
 - **Team Wikis**: Team structure, responsibilities, and contact information
+- **Common Slack Questions**: Questions that are frequently asked in Slack channels
 
 ### Adding Documents
 
@@ -283,7 +232,21 @@ If you have issues with the index:
 
 2. Run the chatbot again to rebuild the index.
 
-### Limitations to Be Aware Of
+## Features
+
+- Loads Markdown files from a specified directory
+- Strips YAML front matter
+- Chunks the text for semantic embedding
+- Embeds the content using a Hugging Face model
+- Stores the embeddings in a vector index locally
+- Provides a terminal interface for asking questions
+- Retrieves relevant document chunks
+- Sends the chunks + question to the model via Ollama
+- Returns relevant answers
+- Persists the index to avoid rebuilding it every time
+- Runs entirely offline
+
+## Limitations to Be Aware Of
 
 - The chatbot can currentlyonly answer based on information in your documents
 - It may occasionally provide incomplete or inaccurate information

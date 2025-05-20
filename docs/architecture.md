@@ -20,7 +20,7 @@ The chatbot is built using a modular architecture with distinct components handl
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
 │                 │     │                 │     │                 │
-│  Markdown Docs  │────▶│    Document     │────▶│    Embedding    │
+│  Markdown Docs  │───▶│    Document     │───▶│    Embedding    │
 │  (training-data)│     │    Processor    │     │     Engine      │
 │                 │     │                 │     │                 │
 └─────────────────┘     └─────────────────┘     └────────┬────────┘
@@ -28,7 +28,7 @@ The chatbot is built using a modular architecture with distinct components handl
                                                          ▼
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
 │                 │     │                 │     │                 │
-│  Chat Interface │◀────│  Query Engine   │◀────│  Vector Index   │
+│  Chat Interface │◀───│  Query Engine   │◀───│  Vector Index   │
 │                 │     │                 │     │                 │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
         ▲                        │                       ▲
