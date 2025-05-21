@@ -2,7 +2,7 @@
 
 A ready-to-use template for creating a local chatbot that can answer questions about your team's documentation using Retrieval-Augmented Generation (RAG).
 
-You can train the chatbot on any markdown documentation,  that you find useful and then ask questions about it.
+You can train the chatbot on various document formats including markdown, PDF, Word documents, CSV, JSON, log files, and AsciiDoc that you find useful and then ask questions about them.
 
 ## Requirements
 
@@ -39,7 +39,7 @@ You can train the chatbot on any markdown documentation,  that you find useful a
    ollama serve
    ```
 
-2. Add your team's markdown documents to the `training-data` directory. Or you can use the sample documentation provided in the `sample-docs` directory to test out this chatbot:
+2. Add your team's documents to the `training-data` directory. The chatbot supports multiple file formats (.md, .docx, .pdf, .csv, .json, .log, .adoc). Or you can use the sample documentation provided in the `sample-docs` directory to test out this chatbot:
    ```
    cp -r sample-docs/* training-data/
    ```
@@ -59,7 +59,7 @@ You can train the chatbot on any markdown documentation,  that you find useful a
 
 You can modify the settings in `config.py`:
 
-- `DOCS_DIR`: Path to the directory containing Markdown files
+- `DOCS_DIR`: Path to the directory containing document files
 - `INDEX_PERSIST_DIR`: Directory to store the persistent index
 - `SYSTEM_PROMPT_PATH`: Path to the system prompt file
 - `CHUNK_SIZE`: Size of text chunks for embedding
@@ -112,25 +112,34 @@ The `training-data/` directory is where you'll add your team's documentation for
 
 ### Adding Documents
 
-1. Create markdown (.md) files with your content
+1. Create files in any of the supported formats:
+   - Markdown (.md) - with optional YAML front matter
+   - Word documents (.docx)
+   - PDF files (.pdf)
+   - CSV files (.csv)
+   - JSON files (.json)
+   - Log files (.log)
+   - AsciiDoc files (.adoc)
 
 2. Place the files in the `training-data/` directory, organizing with subdirectories as needed. Below is a potential structure, you can alternatively clone your existing docs repo into the `training-data/` directory.
    ```
    training-data/
    ├── onboarding/
    │   ├── first-day-setup.md
-   │   └── team-tools.md
+   │   ├── team-tools.docx
+   │   └── company-handbook.pdf
    ├── technical/
    │   ├── architecture-overview.md
-   │   └── api-documentation.md
+   │   ├── api-documentation.adoc
+   │   └── performance-metrics.csv
    ├── processes/
    │   ├── code-review-process.md
-   │   └── deployment-process.md
-   └── faqs/
-       ├── common-issues.md
+   │   └── deployment-process.json
+   └── logs/
+       ├── error-examples.log
        └── troubleshooting.md
    ```
-> Note: 2. Add YAML front matter at the top of each file to improve organization and searchability:
+> Note: For Markdown files, add YAML front matter at the top to improve organization and searchability:
 > ```yaml
 > ---
 > title: "Document Title"
@@ -259,8 +268,9 @@ If you have issues with the index:
 
 ## Features
 
-- Loads Markdown files from a specified directory
-- Strips YAML front matter
+- Loads multiple document formats (.md, .docx, .pdf, .csv, .json, .log, .adoc) from a specified directory
+- Extracts text content from each file type appropriately
+- Strips YAML front matter from Markdown files
 - Chunks the text for semantic embedding
 - Embeds the content using a Hugging Face model
 - Stores the embeddings in a vector index locally
@@ -273,7 +283,7 @@ If you have issues with the index:
 
 ## Limitations to Be Aware Of
 
-- The chatbot can currentlyonly answer based on information in your documents
+- The chatbot can currently only answer based on information in your documents
 - It may occasionally provide incomplete or inaccurate information
 - Complex, nuanced topics might require human expertise
 - The quality of answers depends on the quality of your documentation

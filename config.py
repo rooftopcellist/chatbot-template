@@ -11,6 +11,9 @@ SYSTEM_PROMPT_PATH = "system_prompt.txt"  # Path to the system prompt file
 CHUNK_SIZE = 500  # Size of text chunks for embedding
 CHUNK_OVERLAP = 50  # Overlap between chunks
 
+# Supported file types
+SUPPORTED_EXTENSIONS = ['.md', '.docx', '.pdf', '.csv', '.json', '.log', '.adoc']
+
 # Embedding model
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"  # HuggingFace model for embeddings
 
