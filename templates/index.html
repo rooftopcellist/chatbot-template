@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ chatbot_name }} - Web Interface</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">
+                    <span class="header-icon">🤖</span>
+                    {{ chatbot_name }}
+                </h1>
+                <div class="header-controls">
+                    <button id="theme-toggle" class="btn btn-icon" title="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <button id="export-chat" class="btn btn-icon" title="Export chat">
+                        <span>📥</span>
+                    </button>
+                    <button id="clear-chat" class="btn btn-icon" title="Clear chat">
+                        <span>🗑️</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Chat Container -->
+        <main class="chat-container">
+            <!-- Welcome Message -->
+            <div id="welcome-message" class="welcome-message">
+                <div class="welcome-content">
+                    <h2>Welcome to {{ chatbot_name }}</h2>
+                    <p>{{ welcome_message }}</p>
+                    <div class="welcome-features">
+                        <div class="feature">
+                            <span class="feature-icon">📚</span>
+                            <span>Ask questions about your documents</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🔍</span>
+                            <span>Get contextual answers with sources</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">💬</span>
+                            <span>Real-time chat interface</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="chat-messages">
+                <!-- Messages will be dynamically added here -->
+            </div>
+
+            <!-- Typing Indicator -->
+            <div id="typing-indicator" class="typing-indicator hidden">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="typing-text">{{ chatbot_name }} is typing...</span>
+            </div>
+        </main>
+
+        <!-- Input Area -->
+        <footer class="input-area">
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="message-input" 
+                        placeholder="Ask me anything about your documents..."
+                        rows="1"
+                        maxlength="2000"
+                    ></textarea>
+                    <button id="send-button" class="btn btn-primary" disabled>
+                        <span class="send-icon">📤</span>
+                    </button>
+                </div>
+                <div class="input-info">
+                    <span id="char-count" class="char-count">0/2000</span>
+                    <span class="connection-status" id="connection-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Connecting...</span>
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Connection Error Modal -->
+    <div id="error-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Connection Error</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="error-message">Unable to connect to the server. Please check your connection and try again.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="retry-connection" class="btn btn-primary">Retry</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plugin Container for Future Extensions -->
+    <div id="plugin-container" class="plugin-container">
+        <!-- Plugins will be loaded here -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/app.js"></script>
+    <script src="/static/plugins.js"></script>
+    
+    <!-- Initialize App -->
+    <script>
+        // Pass server-side data to JavaScript
+        window.CHATBOT_CONFIG = {
+            name: "{{ chatbot_name }}",
+            welcomeMessage: {{ welcome_message | tojson }},
+            sessionId: null // Will be set by app.js
+        };
+        
+        // Initialize the chat application
+        document.addEventListener('DOMContentLoaded', function() {
+            window.ChatApp.init();
+        });
+    </script>
+</body>
+</html>

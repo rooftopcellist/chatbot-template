@@ -45,3 +45,9 @@ CHATBOT_NAME = "Local Assistant"  # Name of the chatbot
 WELCOME_MESSAGE = f"""Welcome to {CHATBOT_NAME}
 A local chatbot that can answer questions based on your documents
 Type 'exit' or 'quit' to end the session."""
+
+# Web server settings
+WEB_HOST = "127.0.0.1"  # Host to bind the web server to
+WEB_PORT = 8080  # Port for the web server
+WEB_DEBUG = True  # Enable debug mode for development
+CORS_ORIGINS = ["*"]  # CORS origins for API access

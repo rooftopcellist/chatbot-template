@@ -48,6 +48,8 @@ You can train the chatbot on various document formats including markdown, PDF, W
 > Note: This will include info about the chatbot itself in the training data. Skip this step if you don't want this.
 
 3. Run the chatbot:
+
+   **Terminal Interface:**
    ```
    ./run.sh
 
@@ -58,7 +60,20 @@ You can train the chatbot on various document formats including markdown, PDF, W
    ./run.sh --refresh
    ```
 
-4. Ask questions about your team's documentation in the terminal interface.
+   **Web Interface:**
+   ```
+   ./run_web.sh
+
+   # Or run web_main.py directly
+   python web_main.py
+
+   # To force recreation of the index (useful after adding new documents)
+   ./run_web.sh --refresh
+   ```
+
+4. Ask questions about your team's documentation:
+   - **Terminal**: Type questions directly in the terminal
+   - **Web**: Open your browser to http://127.0.0.1:8080 for a modern web interface
 
 5. Try asking a question about the documentation you just added. If you are using the sample docs, try asking it, "What is RAG and how does it work?", or "What is a fact about Stradivarius?".
 
@@ -82,20 +97,34 @@ You can modify the settings in `config.py`:
 - `TOP_K`: Number of chunks to retrieve for each query
 - `CHATBOT_NAME`: Name of the chatbot
 - `WELCOME_MESSAGE`: Welcome message to display
+- `WEB_HOST`: Host to bind the web server to (default: 127.0.0.1)
+- `WEB_PORT`: Port for the web server (default: 8080)
+- `WEB_DEBUG`: Enable debug mode for development
+- `CORS_ORIGINS`: CORS origins for API access
 
 ## Directory Structure
 
 ```
 chatbot-template/
 ├── config.py                 # Configuration settings
-├── main.py                   # Main application entry point
+├── main.py                   # Terminal interface entry point
+├── web_main.py               # Web interface entry point
 ├── document_processor.py     # Document loading and processing
 ├── embedding_engine.py       # Embedding and vector storage
 ├── query_engine.py           # Query processing and response generation
 ├── chat_interface.py         # Terminal chat interface
+├── web_interface.py          # Web chat session management
+├── web_server.py             # FastAPI web server
 ├── system_prompt.txt         # System prompt for guiding the chatbot's responses
-├── run.sh                    # Convenience script to run the chatbot
+├── run.sh                    # Convenience script to run terminal interface
+├── run_web.sh                # Convenience script to run web interface
 ├── requirements.txt          # Python dependencies
+├── static/                   # Web interface static files
+│   ├── style.css             # CSS styling
+│   ├── app.js                # Main JavaScript application
+│   └── plugins.js            # Plugin system for extensibility
+├── templates/                # HTML templates
+│   └── index.html            # Main web interface template
 ├── data/                     # Directory for storing data
 │   └── index/                # Persistent vector index
 └── training-data/            # Default directory for training documents
@@ -222,18 +251,31 @@ If you have issues with the index:
 
 ## Features
 
+### Core Features
 - Loads multiple document formats (.md, .docx, .pdf, .csv, .json, .log, .adoc, .rst) from a specified directory
 - Extracts text content from each file type appropriately
 - Strips YAML front matter from Markdown files
 - Chunks the text for semantic embedding
 - Embeds the content using a Hugging Face model
 - Stores the embeddings in a vector index locally
-- Provides a terminal interface for asking questions
 - Retrieves relevant document chunks
 - Sends the chunks + question to the model via Ollama
 - Returns relevant answers
 - Persists the index to avoid rebuilding it every time
 - Runs entirely offline
+
+### Interface Options
+- **Terminal Interface**: Traditional command-line chat interface
+- **Web Interface**: Modern browser-based chat with real-time messaging
+
+### Web Interface Features
+- Real-time chat using WebSockets
+- Responsive design that works on desktop and mobile
+- Dark/light theme toggle
+- Chat history export
+- Typing indicators and connection status
+- Plugin system for extensibility
+- Session management with persistent chat history
 
 ## Limitations to Be Aware Of
 
