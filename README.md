@@ -53,6 +53,9 @@ You can train the chatbot on various document formats including markdown, PDF, W
 
    # Or run main.py directly
    python main.py
+
+   # To force recreation of the index (useful after adding new documents)
+   ./run.sh --refresh
    ```
 
 4. Ask questions about your team's documentation in the terminal interface.
@@ -227,6 +230,11 @@ To use a different embedding model:
 
 2. Delete the existing index to force a rebuild:
    ```
+   ./run.sh --refresh
+   ```
+
+   Or manually:
+   ```
    rm -rf data/index
    ```
 
@@ -255,12 +263,17 @@ If you see an error connecting to Ollama:
 
 If you have issues with the index:
 
-1. Delete the existing index:
+1. Use the --refresh flag to automatically delete and rebuild the index:
+   ```
+   ./run.sh --refresh
+   ```
+
+2. Or manually delete the existing index:
    ```
    rm -rf data/index
    ```
 
-2. Run the chatbot again to rebuild the index.
+3. Run the chatbot again to rebuild the index.
 
 ## Features
 
