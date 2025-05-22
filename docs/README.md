@@ -9,6 +9,7 @@ This directory contains comprehensive documentation about the chatbot system, it
 | [Core Concepts](core-concepts.md) | High-level explanation of RAG chatbots and how they work |
 | [Architecture](architecture.md) | Detailed explanation of the chatbot's components and data flow |
 | [Tuning Pretrained Models](tuning-pretrained-models.md) | Guide to adjusting model parameters for optimal responses |
+| [FAQ](faq.md) | Frequently asked questions about the chatbot system |
 
 ## Best Practices
 

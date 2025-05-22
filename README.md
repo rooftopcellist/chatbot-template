@@ -167,6 +167,7 @@ The `docs/` directory contains comprehensive documentation about the chatbot sys
 - [Tuning Pretrained Models](docs/tuning-pretrained-models.md): Guide to adjusting model parameters for optimal responses
 - [Optimizing Documentation](docs/optimizing-documentation.md): Best practices for creating documentation that works well with RAG
 - [Evaluating Performance](docs/evaluating-performance.md): Methods for assessing and improving chatbot performance
+- [FAQ](docs/faq.md): Frequently asked questions about the chatbot system
 
 See the [docs README](docs/README.md) for a complete index of all documentation.
 
