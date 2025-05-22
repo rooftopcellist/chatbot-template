@@ -17,6 +17,12 @@ This directory contains comprehensive documentation about the chatbot system, it
 | [Optimizing Documentation](optimizing-documentation.md) | Best practices for creating documentation that works well with RAG |
 | [Evaluating Performance](evaluating-performance.md) | Methods for assessing and improving chatbot performance |
 
+## Configuration
+
+| Document | Description |
+|----------|-------------|
+| [Repository Configuration](configuration/repo_configuration.md) | How to configure repositories that will be automatically pulled into the training data |
+
 ## Using This Documentation
 
 These documents serve two purposes:

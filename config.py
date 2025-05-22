@@ -29,6 +29,16 @@ OLLAMA_REQUEST_TIMEOUT = 300.0  # Timeout in seconds
 # Query settings
 TOP_K = 5  # Number of chunks to retrieve for each query
 
+# Repository settings
+TRAINING_REPOS = [
+    # Example configuration - uncomment to test with ansible-documentation:
+    # {
+    #     "url": "git@github.com:ansible/ansible-documentation.git",
+    #     "name": "ansible-docs",  # Optional: custom directory name
+    #     "branch": "devel"  # Optional: specific branch (defaults to default branch)
+    # }
+]  # List of repositories to automatically pull into training-data/
+
 # Chat interface settings
 CHATBOT_NAME = "Local Assistant"  # Name of the chatbot
 WELCOME_MESSAGE = f"""Welcome to {CHATBOT_NAME}

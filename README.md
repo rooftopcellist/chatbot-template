@@ -39,7 +39,7 @@ You can train the chatbot on various document formats including markdown, PDF, W
    ollama serve
    ```
 
-2. Add your team's documents to the `training-data` directory. The chatbot supports multiple file formats (.md, .docx, .pdf, .csv, .json, .log, .adoc). Or you can use the sample documentation provided in the `sample-docs` directory to test out this chatbot:
+2. Add your team's documents to the `training-data` directory. The chatbot supports multiple file formats (.md, .docx, .pdf, .csv, .json, .log, .adoc). You can also clone your existing docs repo into the `training-data` directory (see [Repository Configuration](configuration/repo_configuration.md)). Or you can use the sample documentation provided in the `sample-docs` directory to test out this chatbot:
    ```
    cp -r sample-docs/* training-data/
    cp -r docs/* training-data/

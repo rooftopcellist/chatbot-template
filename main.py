@@ -8,6 +8,7 @@ from document_processor import load_documents
 from embedding_engine import EmbeddingEngine
 from query_engine import QueryEngine
 from chat_interface import ChatInterface
+from repo_manager import RepoManager
 import config
 
 def main():
@@ -63,6 +64,17 @@ def main():
 
     # Create data directory if it doesn't exist
     os.makedirs(os.path.dirname(config.INDEX_PERSIST_DIR), exist_ok=True)
+
+    # Create training-data directory if it doesn't exist
+    os.makedirs(config.DOCS_DIR, exist_ok=True)
+
+    # Pull configured repositories
+    console.print("Checking for configured repositories...")
+    repo_manager = RepoManager(console)
+    repo_success = repo_manager.pull_configured_repos()
+
+    if not repo_success:
+        console.print("[bold yellow]Warning: Some repository operations failed, but continuing with document loading...[/bold yellow]")
 
     # Initialize components
     console.print(f"[bold blue]Initializing {config.CHATBOT_NAME}...[/bold blue]")
