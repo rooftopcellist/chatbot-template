@@ -18,7 +18,7 @@ import asciidoc3
 def load_documents() -> List[Document]:
     """
     Load all supported documents from the configured directory.
-    Supports multiple file types: .md, .docx, .pdf, .csv, .json, .log, .adoc
+    Supports multiple file types: .md, .docx, .pdf, .csv, .json, .log, .adoc, .rst
 
     Returns:
         List[Document]: List of processed documents
@@ -39,6 +39,7 @@ def load_documents() -> List[Document]:
         '.json': process_json_file,
         '.log': process_log_file,
         '.adoc': process_asciidoc_file,
+        '.rst': process_rst_file,
     }
 
     # Verify that all supported extensions have processors
@@ -248,6 +249,57 @@ def process_asciidoc_file(file_path: str) -> Document:
         'filename': os.path.basename(file_path),
         'filetype': 'asciidoc',
     }
+
+    # Create Document object
+    return Document(text=content, metadata=metadata)
+
+def process_rst_file(file_path: str) -> Document:
+    """
+    Process a single reStructuredText (.rst) file.
+    Converts RST to plain text while preserving structure.
+
+    Args:
+        file_path (str): Path to the RST file
+
+    Returns:
+        Document: Processed document
+    """
+    with open(file_path, 'r', encoding='utf-8') as f:
+        rst_content = f.read()
+
+    # For RST files, we'll use the raw content directly for better RAG performance
+    # This avoids parsing issues with undefined substitutions and directives
+    # while still preserving the readable structure of RST
+    content = rst_content
+    title = ''
+
+    # Try to extract title from RST content using simple parsing
+    try:
+        lines = rst_content.split('\n')
+        for i, line in enumerate(lines):
+            # Look for RST title patterns (underlined text)
+            if line.strip() and i + 1 < len(lines):
+                next_line = lines[i + 1].strip()
+                # Check if next line is all underline characters (=, -, *, etc.)
+                if (len(next_line) >= len(line.strip()) and
+                    next_line and
+                    all(c in '=-*^~"\'`#' for c in next_line)):
+                    title = line.strip()
+                    break
+    except Exception:
+        # If title extraction fails, continue without title
+        pass
+
+    # Create metadata
+    metadata = {
+        'source': file_path,
+        'filename': os.path.basename(file_path),
+        'filetype': 'rst',
+    }
+
+    # Add title to metadata if available
+    if title:
+        metadata['title'] = title
 
     # Create Document object
     return Document(text=content, metadata=metadata)

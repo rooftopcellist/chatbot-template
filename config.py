@@ -12,7 +12,7 @@ CHUNK_SIZE = 500  # Size of text chunks for embedding
 CHUNK_OVERLAP = 50  # Overlap between chunks
 
 # Supported file types
-SUPPORTED_EXTENSIONS = ['.md', '.docx', '.pdf', '.csv', '.json', '.log', '.adoc']
+SUPPORTED_EXTENSIONS = ['.md', '.docx', '.pdf', '.csv', '.json', '.log', '.adoc', '.rst']
 
 # Embedding model
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"  # HuggingFace model for embeddings
@@ -28,6 +28,7 @@ OLLAMA_REQUEST_TIMEOUT = 300.0  # Timeout in seconds
 
 # Query settings
 TOP_K = 5  # Number of chunks to retrieve for each query
+VERBOSE = False  # Enable verbose output including intermediate responses during query processing
 
 # Repository settings
 TRAINING_REPOS = [

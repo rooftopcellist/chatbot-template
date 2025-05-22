@@ -69,7 +69,7 @@ class QueryEngine:
         # Create response synthesizer
         self.response_synthesizer = CompactAndRefine(
             llm=self.llm,
-            verbose=True,
+            verbose=config.VERBOSE,
             text_qa_template=qa_template
         )
 

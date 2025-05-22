@@ -86,7 +86,7 @@ def main():
     if not documents:
         console.print(f"[bold red]Error: No documents found in {config.DOCS_DIR}[/bold red]")
         console.print("Please make sure the directory exists and contains supported document files.")
-        console.print("Supported file types: .md, .docx, .pdf, .csv, .json, .log, .adoc")
+        console.print("Supported file types: .md, .docx, .pdf, .csv, .json, .log, .adoc, .rst")
         return
 
     # Initialize embedding engine

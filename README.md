@@ -111,14 +111,13 @@ Supported file types:
 * Markdown (.md)
 * PDF (.pdf)
 * Word documents (.docx)
-* PDF (.pdf)
 * JSON (.json)
 * CSV (.csv)
 * Text (.txt)
 * AsciiDoc (.adoc)
+* reStructuredText (.rst)
 
 Coming Soon:
-* Restructured Text (.rst)
 * Jinja2 (.j2)
 * HTML (.html)
 * YAML (.yaml)
@@ -150,6 +149,7 @@ Coming Soon:
    - JSON files (.json)
    - Log files (.log)
    - AsciiDoc files (.adoc)
+   - reStructuredText files (.rst)
 
 2. Place the files in the `training-data/` directory, organizing with subdirectories as needed. You can alternatively clone your existing docs repo into the `training-data/` directory.
 
@@ -202,6 +202,18 @@ OLLAMA_REPEAT_PENALTY = 1.1  # Penalty for repeating tokens
 - **Context Window**: Increase for handling more context from retrieved documents
 - **Max Tokens**: Adjust based on how detailed you want responses to be
 - **Repeat Penalty**: Increase to reduce repetition in responses
+
+### Controlling Verbose Output
+
+You can control whether the chatbot displays intermediate processing steps during query processing:
+
+```python
+# Query settings
+VERBOSE = False  # Set to True to see intermediate responses and processing steps
+```
+
+- **VERBOSE = False** (default): Clean output with only the final response
+- **VERBOSE = True**: Shows intermediate processing steps, useful for debugging or understanding how responses are generated
 
 See [Tuning Pretrained Models](docs/tuning-pretrained-models.md) for detailed guidance on parameter tuning.
 
@@ -277,7 +289,7 @@ If you have issues with the index:
 
 ## Features
 
-- Loads multiple document formats (.md, .docx, .pdf, .csv, .json, .log, .adoc) from a specified directory
+- Loads multiple document formats (.md, .docx, .pdf, .csv, .json, .log, .adoc, .rst) from a specified directory
 - Extracts text content from each file type appropriately
 - Strips YAML front matter from Markdown files
 - Chunks the text for semantic embedding
