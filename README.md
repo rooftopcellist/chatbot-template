@@ -19,9 +19,9 @@ You can train the chatbot on various document formats including markdown, PDF, W
 
 2. Create a virtual environment and install dependencies:
    ```
-   python -m venv venv
+   python3 -m venv venv
    source venv/bin/activate
-   pip install -r requirements.txt
+   pip3 install -r requirements.txt
    ```
 
 3. Install Ollama and pull the qwen3:1.7b model:
