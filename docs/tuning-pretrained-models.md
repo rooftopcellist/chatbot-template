@@ -3,8 +3,8 @@ title: "Tuning Pretrained Models for Optimal Responses"
 description: "A comprehensive guide to adjusting model parameters for better performance in the RAG chatbot"
 category: "guides"
 tags: ["tuning", "parameters", "optimization", "llm", "ollama"]
-created: "2023-07-20"
-updated: "2023-07-20"
+created: "2025-05-21"
+updated: "2025-05-21"
 ---
 
 # Tuning Pretrained Models for Optimal Responses

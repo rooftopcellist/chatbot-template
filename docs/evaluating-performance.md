@@ -3,8 +3,8 @@ title: "Evaluating and Improving Chatbot Performance"
 description: "Methods for assessing your RAG chatbot's performance and strategies for improvement"
 category: "guides"
 tags: ["evaluation", "performance", "improvement", "rag", "optimization"]
-created: "2023-07-12"
-updated: "2023-07-12"
+created: "2025-05-21"
+updated: "2025-05-21"
 ---
 
 # Evaluating and Improving Chatbot Performance
@@ -224,8 +224,6 @@ Establish a continuous improvement process:
    - Compare performance before and after changes
    - Ensure improvements don't cause regressions
 
-## Conclusion
+## Note to the Reader
 
-Evaluating and improving your RAG chatbot is an iterative process. By systematically testing performance, identifying issues, and implementing targeted improvements, you can significantly enhance the chatbot's ability to provide accurate and helpful information from your team's documentation.
-
-Remember that the quality of your documentation is the foundation of a successful RAG chatbot. Often, the most effective way to improve performance is to enhance the underlying documentation based on the patterns you observe in chatbot usage.
+The quality of your documentation is the foundation of a successful RAG chatbot. Often, the most effective way to improve performance is to enhance the underlying documentation based on the patterns you observe in chatbot usage.

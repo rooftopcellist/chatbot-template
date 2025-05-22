@@ -1,4 +1,4 @@
-# Documentation for Team Documentation Chatbot
+# Chatbot Developer Documentation
 
 This directory contains comprehensive documentation about the chatbot system, its architecture, and best practices for using it effectively.
 
@@ -16,16 +16,6 @@ This directory contains comprehensive documentation about the chatbot system, it
 |----------|-------------|
 | [Optimizing Documentation](optimizing-documentation.md) | Best practices for creating documentation that works well with RAG |
 | [Evaluating Performance](evaluating-performance.md) | Methods for assessing and improving chatbot performance |
-
-## Example Documentation Structure
-
-The subdirectories in this `docs` directory demonstrate an example structure for organizing documentation:
-
-- **guides/**: Step-by-step guides for accomplishing specific tasks
-- **reference/**: Technical reference documentation, specifications, and API details
-- **tutorials/**: Comprehensive tutorials for learning concepts
-- **examples/**: Code examples and use cases
-- **api/**: API documentation and endpoint details
 
 ## Using This Documentation
 

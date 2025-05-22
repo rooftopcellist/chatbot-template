@@ -3,8 +3,8 @@ title: "Core Concepts of RAG Chatbots"
 description: "A high-level explanation of the fundamental concepts behind Retrieval-Augmented Generation chatbots"
 category: "reference"
 tags: ["rag", "concepts", "architecture", "fundamentals"]
-created: "2023-07-10"
-updated: "2023-07-10"
+created: "2025-05-21"
+updated: "2025-05-21"
 ---
 
 # Core Concepts of RAG Chatbots

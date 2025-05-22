@@ -3,8 +3,8 @@ title: "Chatbot Architecture and Flow"
 description: "Detailed explanation of the chatbot's architecture, components, and data flow"
 category: "reference"
 tags: ["architecture", "design", "components", "flow", "technical"]
-created: "2023-07-15"
-updated: "2023-07-15"
+created: "2025-05-21"
+updated: "2025-05-21"
 ---
 
 # Chatbot Architecture and Flow
@@ -20,7 +20,7 @@ The chatbot is built using a modular architecture with distinct components handl
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
 │                 │     │                 │     │                 │
-│  Markdown Docs  │───▶│    Document     │───▶│    Embedding    │
+│  Markdown Docs  │───▶ │    Document     │───▶ │    Embedding    │
 │  (training-data)│     │    Processor    │     │     Engine      │
 │                 │     │                 │     │                 │
 └─────────────────┘     └─────────────────┘     └────────┬────────┘
@@ -28,7 +28,7 @@ The chatbot is built using a modular architecture with distinct components handl
                                                          ▼
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
 │                 │     │                 │     │                 │
-│  Chat Interface │◀───│  Query Engine   │◀───│  Vector Index   │
+│  Chat Interface │◀─── │  Query Engine   │◀─── │  Vector Index   │
 │                 │     │                 │     │                 │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
         ▲                        │                       ▲

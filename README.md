@@ -1,4 +1,4 @@
-# Simple RAG Chatbot Template
+# RAG Chatbot Template
 
 A ready-to-use template for creating a local chatbot that can answer questions about your team's documentation using Retrieval-Augmented Generation (RAG).
 
@@ -20,7 +20,7 @@ You can train the chatbot on various document formats including markdown, PDF, W
 2. Create a virtual environment and install dependencies:
    ```
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   source venv/bin/activate
    pip install -r requirements.txt
    ```
 
@@ -42,13 +42,17 @@ You can train the chatbot on various document formats including markdown, PDF, W
 2. Add your team's documents to the `training-data` directory. The chatbot supports multiple file formats (.md, .docx, .pdf, .csv, .json, .log, .adoc). Or you can use the sample documentation provided in the `sample-docs` directory to test out this chatbot:
    ```
    cp -r sample-docs/* training-data/
+   cp -r docs/* training-data/
    ```
+
+> Note: This will include info about the chatbot itself in the training data. Skip this step if you don't want this.
 
 3. Run the chatbot:
    ```
-   python main.py
-   # Or use the convenience script
    ./run.sh
+
+   # Or run main.py directly
+   python main.py
    ```
 
 4. Ask questions about your team's documentation in the terminal interface.
@@ -100,6 +104,27 @@ The `training-data/` directory is where you'll add your team's documentation for
 
 ### Types of Documentation You Can Include
 
+Supported file types:
+* Markdown (.md)
+* PDF (.pdf)
+* Word documents (.docx)
+* PDF (.pdf)
+* JSON (.json)
+* CSV (.csv)
+* Text (.txt)
+* AsciiDoc (.adoc)
+
+Coming Soon:
+* Restructured Text (.rst)
+* Jinja2 (.j2)
+* HTML (.html)
+* YAML (.yaml)
+* XML (.xml)
+* Images (.jpg, .png, .gif)
+* Videos (.mp4, .avi)
+* Audio (.mp3, .wav)
+* Powerpoint (.pptx)
+
 - **Onboarding Materials**: Team processes, workflows, and getting started guides
 - **Technical Documentation**: Architecture diagrams, API references, and code explanations
 - **Policies and Procedures**: Company policies, security protocols, and standard procedures
@@ -109,6 +134,8 @@ The `training-data/` directory is where you'll add your team's documentation for
 - **Knowledge Base Articles**: How-to guides and explanations of complex topics
 - **Team Wikis**: Team structure, responsibilities, and contact information
 - **Common Slack Questions**: Questions that are frequently asked in Slack channels
+- **Internal Tools Documentation**: Documentation for internal tools and services
+- Be Creative!
 
 ### Adding Documents
 
@@ -121,38 +148,7 @@ The `training-data/` directory is where you'll add your team's documentation for
    - Log files (.log)
    - AsciiDoc files (.adoc)
 
-2. Place the files in the `training-data/` directory, organizing with subdirectories as needed. Below is a potential structure, you can alternatively clone your existing docs repo into the `training-data/` directory.
-   ```
-   training-data/
-   ├── onboarding/
-   │   ├── first-day-setup.md
-   │   ├── team-tools.docx
-   │   └── company-handbook.pdf
-   ├── technical/
-   │   ├── architecture-overview.md
-   │   ├── api-documentation.adoc
-   │   └── performance-metrics.csv
-   ├── processes/
-   │   ├── code-review-process.md
-   │   └── deployment-process.json
-   └── logs/
-       ├── error-examples.log
-       └── troubleshooting.md
-   ```
-> Note: For Markdown files, add YAML front matter at the top to improve organization and searchability:
-> ```yaml
-> ---
-> title: "Document Title"
-> description: "Brief description of what this document covers"
-> category: "technical-docs"  # Helps with organization
-> tags: ["api", "authentication", "oauth"]  # Relevant keywords
-> created: "2023-06-15"
-> updated: "2023-06-20"
-> author: "Jane Smith"  # Optional
-> team: "Backend"  # Optional
-> priority: "high"  # Optional
-> ---
-> ```
+2. Place the files in the `training-data/` directory, organizing with subdirectories as needed. You can alternatively clone your existing docs repo into the `training-data/` directory.
 
 3. Run the chatbot to build or rebuild the index:
    ```

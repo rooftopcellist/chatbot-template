@@ -3,8 +3,8 @@ title: "Optimizing Documentation for RAG Chatbots"
 description: "Best practices for creating and structuring documentation to get the best results from your RAG chatbot"
 category: "guides"
 tags: ["documentation", "best-practices", "rag", "optimization"]
-created: "2023-07-11"
-updated: "2023-07-11"
+created: "2025-05-21"
+updated: "2025-05-21"
 ---
 
 # Optimizing Documentation for RAG Chatbots
