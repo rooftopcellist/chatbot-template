@@ -69,6 +69,12 @@ You can train the chatbot on various document formats including markdown, PDF, W
 
    # To force recreation of the index (useful after adding new documents)
    ./run_web.sh --refresh
+
+   # To stop the web service
+   ./run_web.sh --stop
+
+   # To check service status
+   ./run_web.sh --status
    ```
 
 4. Ask questions about your team's documentation:
@@ -248,6 +254,31 @@ If you have issues with the index:
    ```
 
 3. Run the chatbot again to rebuild the index.
+
+### Web Interface Issues
+
+If you have issues with the web interface:
+
+1. **Check service status:**
+   ```
+   ./run_web.sh --status
+   ```
+
+2. **Stop and restart the service:**
+   ```
+   ./run_web.sh --stop
+   ./run_web.sh
+   ```
+
+3. **Check if port is in use:**
+   ```
+   lsof -i :8080
+   ```
+
+4. **View service logs by running in foreground:**
+   ```
+   python web_main.py
+   ```
 
 ## Features
 

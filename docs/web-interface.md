@@ -16,12 +16,32 @@ The chatbot includes a modern web interface that provides a user-friendly altern
    python web_main.py
    ```
 
-2. **Open your browser** and navigate to:
+2. **Stop the web server:**
+   ```bash
+   ./run_web.sh --stop
+   ```
+
+3. **Check service status:**
+   ```bash
+   ./run_web.sh --status
+   ```
+
+4. **Start with fresh index:**
+   ```bash
+   ./run_web.sh --refresh
+   ```
+
+5. **View all options:**
+   ```bash
+   ./run_web.sh --help
+   ```
+
+6. **Open your browser** and navigate to:
    ```
    http://127.0.0.1:8080
    ```
 
-3. **Start chatting** by typing your questions in the input field at the bottom of the page.
+7. **Start chatting** by typing your questions in the input field at the bottom of the page.
 
 ### Configuration
 
