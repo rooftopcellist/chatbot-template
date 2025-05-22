@@ -22,6 +22,7 @@ This directory contains comprehensive documentation about the chatbot system, it
 
 | Document | Description |
 |----------|-------------|
+| [General Configuration](configuration/general-configuration.md) | Complete guide to customizing and configuring the chatbot system |
 | [Repository Configuration](configuration/repo_configuration.md) | How to configure repositories that will be automatically pulled into the training data |
 
 ## Using This Documentation
