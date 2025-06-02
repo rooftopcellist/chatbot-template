@@ -65,7 +65,7 @@ def main():
     # Create data directory if it doesn't exist
     os.makedirs(os.path.dirname(config.INDEX_PERSIST_DIR), exist_ok=True)
 
-    # Create training-data directory if it doesn't exist
+    # Create source-data directory if it doesn't exist
     os.makedirs(config.DOCS_DIR, exist_ok=True)
 
     # Pull configured repositories

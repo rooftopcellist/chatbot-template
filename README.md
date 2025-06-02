@@ -39,10 +39,10 @@ You can train the chatbot on various document formats including markdown, PDF, W
    ollama serve
    ```
 
-2. Add your team's documents to the `training-data` directory. The chatbot supports multiple file formats (.md, .docx, .pdf, .csv, .json, .log, .adoc). You can also clone your existing docs repo into the `training-data` directory (see [Repository Configuration](configuration/repo_configuration.md)). Or you can use the sample documentation provided in the `sample-docs` directory to test out this chatbot:
+2. Add your team's documents to the `source-data` directory. The chatbot supports multiple file formats (.md, .docx, .pdf, .csv, .json, .log, .adoc). You can also clone your existing docs repo into the `source-data` directory (see [Repository Configuration](configuration/repo_configuration.md)). Or you can use the sample documentation provided in the `sample-docs` directory to test out this chatbot:
    ```
-   cp -r sample-docs/* training-data/
-   cp -r docs/* training-data/
+   cp -r sample-docs/* source-data/
+   cp -r docs/* source-data/
    ```
 
 > Note: This will include info about the chatbot itself in the training data. Skip this step if you don't want this.
@@ -133,12 +133,12 @@ chatbot-template/
 │   └── index.html            # Main web interface template
 ├── data/                     # Directory for storing data
 │   └── index/                # Persistent vector index
-└── training-data/            # Default directory for training documents
+└── source-data/              # Default directory for source documents
 ```
 
 ## Adding Your Team's Documentation
 
-The `training-data/` directory is where you'll add your team's documentation for the chatbot to learn from. The system works best with well-structured markdown files.
+The `source-data/` directory is where you'll add your team's documentation for the chatbot to learn from. The system works best with well-structured markdown files.
 
 ### Types of Documentation You Can Include
 
@@ -186,7 +186,7 @@ Coming Soon:
    - AsciiDoc files (.adoc)
    - reStructuredText files (.rst)
 
-2. Place the files in the `training-data/` directory, organizing with subdirectories as needed. You can alternatively clone your existing docs repo into the `training-data/` directory.
+2. Place the files in the `source-data/` directory, organizing with subdirectories as needed. You can alternatively clone your existing docs repo into the `source-data/` directory.
 
 3. Run the chatbot to build or rebuild the index:
    ```
