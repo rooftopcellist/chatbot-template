@@ -1,6 +1,6 @@
-# Training Data Directory
+# Source Data Directory
 
-This directory is the default location for storing documents that will be used to train the RAG (Retrieval-Augmented Generation) system for the chatbot.
+This directory is the default location for storing documents that will be used as source data for the RAG (Retrieval-Augmented Generation) system for the chatbot.
 
 ## Adding Documents
 
@@ -34,7 +34,7 @@ You can organize your documents in subdirectories if you have many files. The ch
 
 Example structure:
 ```
-training-data/
+source-data/
 ├── README.md
 ├── product-documentation/
 │   ├── installation.md

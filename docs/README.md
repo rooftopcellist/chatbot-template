@@ -40,6 +40,6 @@ You can ask the chatbot questions about these documents to see how it retrieves 
 
 ## Adding Your Own Documentation
 
-While this directory contains documentation about the chatbot itself, your actual team documentation should be placed in the `training-data` directory, which is the default location the chatbot uses to build its knowledge base.
+While this directory contains documentation about the chatbot itself, your actual team documentation should be placed in the `source-data` directory, which is the default location the chatbot uses to build its knowledge base.
 
 See the [main README](../README.md) for more information on adding your team's documentation to the chatbot.

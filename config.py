@@ -3,7 +3,7 @@ Configuration settings for the chatbot application.
 """
 
 # Paths
-DOCS_DIR = "training-data"  # Directory containing documents to index
+DOCS_DIR = "source-data"  # Directory containing documents to index
 INDEX_PERSIST_DIR = "data/index"  # Directory to store the persistent index
 SYSTEM_PROMPT_PATH = "system_prompt.txt"  # Path to the system prompt file
 
@@ -38,7 +38,7 @@ TRAINING_REPOS = [
     #     "name": "ansible-docs",  # Optional: custom directory name
     #     "branch": "devel"  # Optional: specific branch (defaults to default branch)
     # }
-]  # List of repositories to automatically pull into training-data/
+]  # List of repositories to automatically pull into source-data/
 
 # Chat interface settings
 CHATBOT_NAME = "Local Assistant"  # Name of the chatbot
