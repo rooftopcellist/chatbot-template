@@ -21,7 +21,7 @@ The chatbot is built using a modular architecture with distinct components handl
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
 │                 │     │                 │     │                 │
 │  Markdown Docs  │───▶ │    Document     │───▶ │    Embedding    │
-│  (training-data)│     │    Processor    │     │     Engine      │
+│  (source-data)  │     │    Processor    │     │     Engine      │
 │                 │     │                 │     │                 │
 └─────────────────┘     └─────────────────┘     └────────┬────────┘
                                                          │
@@ -47,17 +47,17 @@ The chatbot is built using a modular architecture with distinct components handl
 
 **File**: `document_processor.py`
 
-**Purpose**: Loads and processes documents from the training data directory.
+**Purpose**: Loads and processes documents from the source data directory.
 
 **Key Functions**:
-- `load_documents()`: Recursively scans the training data directory for markdown files
+- `load_documents()`: Recursively scans the source data directory for markdown files
 - `process_markdown_file()`: Processes individual markdown files, extracting content and metadata
 
-**Input**: Raw markdown files from the training-data directory
+**Input**: Raw markdown files from the source-data directory
 **Output**: List of Document objects with text content and metadata
 
 **Flow**:
-1. Scans the configured directory (default: `training-data/`)
+1. Scans the configured directory (default: `source-data/`)
 2. For each markdown file:
    - Reads the file content
    - Extracts and parses YAML front matter (if present)
