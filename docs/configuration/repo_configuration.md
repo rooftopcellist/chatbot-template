@@ -1,13 +1,13 @@
 # Repository Configuration
 
-This document explains how to configure repositories that will be automatically pulled into the `training-data/` directory when the chatbot starts.
+This document explains how to configure repositories that will be automatically pulled into the `source-data/` directory when the chatbot starts.
 
 ## Overview
 
-The chatbot can automatically clone and update git repositories to keep your training data up-to-date. This is useful for:
+The chatbot can automatically clone and update git repositories to keep your source data up-to-date. This is useful for:
 
 - Automatically pulling documentation repositories
-- Keeping training data synchronized with remote sources
+- Keeping source data synchronized with remote sources
 - Managing multiple data sources from different repositories
 
 ## Configuration
@@ -39,7 +39,7 @@ Each repository configuration is a dictionary with the following options:
 | Key | Required | Description | Example |
 |-----|----------|-------------|---------|
 | `url` | Yes | Git repository URL (SSH or HTTPS) | `"git@github.com:user/repo.git"` |
-| `name` | No | Custom directory name in training-data/ | `"my-docs"` |
+| `name` | No | Custom directory name in source-data/ | `"my-docs"` |
 | `branch` | No | Specific branch to clone/pull | `"main"` or `"develop"` |
 
 ### Examples
@@ -83,7 +83,7 @@ TRAINING_REPOS = [
 ## Behavior
 
 ### First Run (Clone)
-- If a repository doesn't exist in `training-data/`, it will be cloned
+- If a repository doesn't exist in `source-data/`, it will be cloned
 - The directory name will be the repository name (from URL) or the custom `name` if specified
 - If a `branch` is specified, that branch will be checked out
 
@@ -126,7 +126,7 @@ To test the repository configuration feature:
      ✓ Successfully cloned ansible-docs (branch: main)
    ```
 
-4. **Verify the files** - check that `training-data/ansible-docs/` contains the repository files
+4. **Verify the files** - check that `source-data/ansible-docs/` contains the repository files
 
 ## Troubleshooting
 
@@ -161,7 +161,7 @@ After configuration, your directory structure will look like:
 
 ```
 chatbot-template/
-├── training-data/
+├── source-data/
 │   ├── ansible-docs/          # Cloned repository
 │   │   ├── docs/
 │   │   ├── README.md

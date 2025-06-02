@@ -11,7 +11,7 @@ __pycache__/
 # Data directories
 handbook/*
 data/
-training-data/
+source-data/
 
 # Output files
 output.txt

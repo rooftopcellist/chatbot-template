@@ -106,7 +106,7 @@ Use consistent, descriptive file names:
 Organize files in a logical directory structure:
 
 ```
-training-data/
+source-data/
 ├── api/
 │   ├── authentication.md
 │   ├── endpoints.md
